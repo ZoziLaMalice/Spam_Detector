@@ -2,14 +2,45 @@
 <html>
 <head>
 	<title>Predictions</title>
+
 	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
+
 </head>
-<body>
+<body class="body_preds">
 	<div class="header">
 		<h1>Here is the predictions about your SMS</h1>		
 	</div>
-	<div>
-		<p>Here is my prediction: {{ data }}</p>
+	<div class="input-message">
+		<p>{{ text_message }}</p>
 	</div>
+	<div class="preds">
+
+			{% if data == 1%}
+			<h2 class="blink_me" style="color:red;">Spam</h2>
+			{% elif data == 0%}
+			<h2 style="color:green;">Not spacy Ham</h2>
+			{% endif %}
+
+	</div>
+	<br>
+	<div class="fun">
+		{% if data == 1%}
+		    <script>
+		    	alert("SPAM !!!!");
+    		</script>
+		<p id="check">If you don't know why we use SPAM, check this out bruv !</p>
+		<a href="https://www.youtube.com/watch?v=zLih-WQwBSc">
+			<img src="https://images.lpcdn.ca/924x615/200910/05/113804-monty-python-epoque-leur-serie.jpg" alt="Month Python" id="monthy">
+		</a>
+		<p id="check">Just click above</p>
+		{% elif data == 0%}
+		<p id="check">If you don't know why we use not spacy ham, check this out bruv !</p>
+		<a href="https://www.youtube.com/watch?v=zLih-WQwBSc">
+			<img src="https://www.telerama.fr/sites/tr_master/files/styles/simplecrop1000/public/aaaabyosyqflwh4vj0fy23fkhum71rfvwwznhb9fn32wzior7yvcfxyqkxge9bvennqmsehymxfhelnosmd33qh12czbvyfe_0.jpg?itok=nw8sV7z5&sc=d5c762b61c41d41483f1c3d7e4a23004" alt="Month Python" id="monthy">
+		</a>
+		<p id="check">Just click above</p>
+		{% endif %}
+	</div>
+
 </body>
 </html>

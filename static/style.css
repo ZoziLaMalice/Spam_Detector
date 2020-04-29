@@ -5,12 +5,106 @@
 }
 
 fieldset {
-	font-family: roboto
+	font-family: roboto;
+	border-radius:5px;
+	border: solid 1px grey;
 }
 
 .header {
 	display: flex;
 	flex-flow: wrap column;
 	font-family: roboto;
-	font-weight: bold
+	font-weight: bold;
+	align-content:center;
+}
+
+#SMS {
+	display: flex;
+	font-weight: bold;
+}
+
+.head {
+	display: flex;
+	flex-flow:wrap column;
+	align-content: center;
+	font-family: roboto;
+	font-weight: bold;
+	color: #8A2BE2
+}
+
+.body_preds {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+}
+
+.preds {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+	font-family: roboto;
+	font-weight: bold;	
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.input-message {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+	font-family: roboto;
+	font-weight: inherit;
+}
+
+.fun {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+	font-family: roboto;
+	font-weight: bold;
+	color: #FF69B4
+}
+
+#monthy {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+}
+
+#check {
+	display: flex;
+	flex-flow:wrap column;
+	align-content:center;
+}
+
+body {
+  background-color: lightblue;
+}
+
+#text_message {
+	background-color: lightblue;
+	border-radius:5px;
+	border: solid 1px grey;
+	padding:7px;
+	margin: 10px;
+	font-family: 'Amaranth';
+	color: black;
+	font-size: 13px
+
+}
+
+#submit {
+	padding:3px;
+	margin: 15px;
+	font-weight: bold;
+	font-size: 20px;
+
 }

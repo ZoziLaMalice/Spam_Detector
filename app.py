@@ -28,10 +28,12 @@ def make_predictions():
 
     model.fit(X, y)
 
+    image = "./data/monthy_python.jpg"
+
     if request.method == 'POST':
         message = request.form['text_message']
         pred = model.predict([message])
-    return render_template('predictions.html', data=pred)
+    return render_template('predictions.html', data=pred, text_message=message, image=image)
 
 
 
