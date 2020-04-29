@@ -1,9 +1,11 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, request, url_for
+from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import LinearSVC
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
+from spacy.lang.en.stop_words import STOP_WORDS
 
 app = Flask(__name__)
 
@@ -11,11 +13,27 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/prediction', method=['POST'])
+@app.route('/make_predictions', methods=['POST'])
 def make_predictions():
     df = pd.read_csv('./dataset/spam.csv', encoding='latin-1').drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1)
 
     X = df.message
-    y = df['class']
+    y = LabelEncoder().fit_transform(df['class'])
 
-    X_
+    model = Pipeline([
+        ('cv', CountVectorizer(stop_words=STOP_WORDS,
+                                ngram_range=(1,2))),
+        ('clf', MultinomialNB(alpha=1e-2))
+    ])
+
+    model.fit(X, y)
+
+    if request.method == 'POST':
+        message = request.form['text_message']
+        pred = model.predict([message])
+    return render_template('predictions.html', data=pred)
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

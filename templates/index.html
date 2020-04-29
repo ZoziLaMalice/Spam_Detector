@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spam Detector by ZoziLaMalice</title>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
+</head>
+<body>
+	<form action="{{url_for('make_predictions')}}" method="post" class="message">
+		<fieldset>
+			 <label for="text_message">SMS</label>
+
+			<textarea id="text_message" name="text_message" rows="4" cols="50">
+Enter your SMS here and see if it's a spam or not !!
+			</textarea> 
+		</fieldset>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
