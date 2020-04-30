@@ -13,8 +13,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/make_predictions', methods=['POST'])
-def make_predictions():
+@app.route('/predictions', methods=['POST'])
+def predictions():
     df = pd.read_csv('./dataset/spam.csv', encoding='latin-1').drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1)
 
     X = df.message

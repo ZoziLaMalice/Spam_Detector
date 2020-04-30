@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Spam Detector by ZoziLaMalice</title>
-	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
-	<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+<title>SPAM Detector</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size: 16px;}
+img {margin-bottom: -8px;}
+.mySlides {display: none;}
+</style>
 
-</head>
-<body>
-	<div class="head">
-		<h1 id="main_title">SPAM Detector by ZoziLaMalice</h1>
-	</div>
-	<form action="{{url_for('make_predictions')}}" method="post" class="message">
-		<fieldset>
-			 <label for="text_message" id="SMS">
-			 	Enter your SMS here :
-			 </label>
+<body class="w3-content w3-black" style="max-width:1500px;">
 
-			<textarea id="text_message" name="text_message" rows="4" cols="50"></textarea> 
-		</fieldset>
-		<br>
-		<br>
-		<input type="submit" value="Submit" id="submit">
-	</form>
+<!-- Header with Slideshow -->
+<header class="w3-display-container w3-center">
+  <div class="w3-animate-opacity">
+    <img class="w3-image" src="https://yurplan.com/pro/blog/wp-content/uploads/2017/01/spamLD.jpg" alt="Image 1" style="min-width:500px" width="1500" height="1000">
+    <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+      <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+        <h1 class="w3-xlarge">You don't know why we call it SPAM?</h1>
+        <hr class="w3-opacity">
+        <p>Check this out bruv !!</p>
+        <p><button class="w3-button w3-block w3-yellow w3-round"><a href="https://www.youtube.com/watch?v=zLih-WQwBSc">Monthy Python on Youtube</a></button></p>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- The App Section -->
+<div class="w3-padding-64 w3-white">
+  <div class="w3-row-padding">
+    <div class="w3-col l6 m4">
+      <h1 class="w3-jumbo"><b>SPAM Detector by Zozi</b></h1>
+      <h1 class="w3-xxxlarge w3-text-red"><b>How it works?</b></h1>
+      <p><span class="w3-xlarge">Thanks Machine Learning & Jedha.</span><br>Using a kaggle dataset composed of labeled messages such as SPAM or HAM, I trained a MultinomialNB Machine Learning model via Sckit-learn. <br>
+      The F1 Score on the dataset is 0.95. <br>
+      <br>
+      Try it!
+      <br>
+      <br>
+      Special thanks to this <a href="https://towardsdatascience.com/develop-a-nlp-model-in-python-deploy-it-with-flask-step-by-step-744f3bdd7776" class="w3-hover-text-blue">Medium</a> article.
+      </p>
+    </div>
+    <div class="w3-col l6 m4">
+      <h3 class="w3-jumbo"><b>.</b></h3>
+      <form class="w3-panel w3-card-4" action="{{url_for('predictions')}}" method="post">
+        <h2>Enter your SMS here:</h2>
+
+        <p><textarea class="w3-input" placeholder="SMS" name="text_message"></textarea></p>
+
+        <p><button class="w3-btn w3-red">Submit</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge">
+  <div class="w3-section">
+    <a href="https://github.com/ZoziLaMalice/Spam_Detector"><i class="fa fa-github w3-hover-opacity"></i></a>
+  </div>
+  <p class="w3-medium">Powered by <a href="https://france3-regions.francetvinfo.fr/grand-est/sites/regions_france3/files/styles/asset_list_medium/public/assets/images/2019/05/03/img_5765-4217387.jpg?itok=4tzUXahF" target="_blank" class="w3-hover-text-yellow">Zozi</a> & <a href="https://www.w3schools.com/w3css/w3css_templates.asp" class="w3-hover-text-green">w3</a></p>
+</footer>
 </body>
 </html>

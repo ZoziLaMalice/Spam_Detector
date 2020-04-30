@@ -1,46 +1,82 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Predictions</title>
+
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='bootstrap.css') }}>
 
 	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
-
 </head>
-<body class="body_preds">
-	<div class="header">
-		<h1>Here is the predictions about your SMS</h1>		
-	</div>
-	<div class="input-message">
-		<p>{{ text_message }}</p>
-	</div>
-	<div class="preds">
+    <body>
 
-			{% if data == 1%}
-			<h2 class="blink_me" style="color:red;">Spam</h2>
-			{% elif data == 0%}
-			<h2 style="color:green;">Not spacy Ham</h2>
-			{% endif %}
+        <header>
+          <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+              <a class="navbar-brand">
+                <strong>Spam Detector by Zozi</strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Predictions
+                    <span class="sr-only">(current)</span>
+                	</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-	</div>
-	<br>
-	<div class="fun">
-		{% if data == 1%}
-		    <script>
-		    	alert("SPAM !!!!");
-    		</script>
-		<p id="check">If you don't know why we use SPAM, check this out bruv !</p>
-		<a href="https://www.youtube.com/watch?v=zLih-WQwBSc">
-			<img src="https://images.lpcdn.ca/924x615/200910/05/113804-monty-python-epoque-leur-serie.jpg" alt="Month Python" id="monthy">
-		</a>
-		<p id="check">Just click above</p>
-		{% elif data == 0%}
-		<p id="check">If you don't know why we use not spacy ham, check this out bruv !</p>
-		<a href="https://www.youtube.com/watch?v=zLih-WQwBSc">
-			<img src="https://www.telerama.fr/sites/tr_master/files/styles/simplecrop1000/public/aaaabyosyqflwh4vj0fy23fkhum71rfvwwznhb9fn32wzior7yvcfxyqkxge9bvennqmsehymxfhelnosmd33qh12czbvyfe_0.jpg?itok=nw8sV7z5&sc=d5c762b61c41d41483f1c3d7e4a23004" alt="Month Python" id="monthy">
-		</a>
-		<p id="check">Just click above</p>
-		{% endif %}
-	</div>
+          {% if data == 1 %}
 
-</body>
+          <div class="view" style="background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="mask rgba-gradient align-items-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 fadeInLeft">
+                    <h1 class="h1-responsive font-weight-bold mt-sm-5">Your SMS is a SPAM ! </h1>
+                    <hr class="hr-light">
+                    <h6 class="mb-4">{{ text_message }}</h6>
+                    <a class="btn btn-outline-warning" style="color:yellow;">Learn more</a>
+                  </div>
+                  <div class="col-md-6 col-xl-5 mt-xl-5 fadeInRight">
+                    <img src="/home/zozi/Downloads/spam.png" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% elif data == 0 %}
+
+          <div class="view" style="background-image: url('https://www.secureaplus.com/wp-content/uploads/2016/03/SecureAPlus-HomePage-Background.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="mask rgba-gradient-valid align-items-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 fadeInLeft">
+                    <h1 class="h1-responsive font-weight-bold mt-sm-5">Your SMS is a HAM ! <br> Don't panic</h1>
+                    <hr class="hr-light">
+                    <h6 class="mb-4">{{ text_message }}</h6>
+                    <a class="btn btn-primary" style="color:white;">Learn more</a>
+                  </div>
+                  <div class="col-md-6 col-xl-5 mt-xl-5 fadeInRight">
+                    <img src="../spam.png" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% endif %}
+
+        </header>
+
+
+    </body>
 </html>
