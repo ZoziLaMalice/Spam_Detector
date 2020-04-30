@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 
-	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='bootstrap.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/bootstrap.css') }}>
 
-	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/style.css') }}>
 </head>
     <body>
 
@@ -21,7 +21,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{{url_for('home')}}">Home</a>
                   </li>
                   <li class="nav-item active">
                     <a class="nav-link" href="#">Predictions
@@ -43,10 +43,10 @@
                     <h1 class="h1-responsive font-weight-bold mt-sm-5">Your SMS is a SPAM ! </h1>
                     <hr class="hr-light">
                     <h6 class="mb-4">{{ text_message }}</h6>
-                    <a class="btn btn-outline-warning" style="color:yellow;">Learn more</a>
+                    <a class="btn btn-outline-warning" style="color:yellow;" href="https://www.pcmag.com/how-to/how-to-block-robotexts-and-spam-messages">Learn more</a>
                   </div>
                   <div class="col-md-6 col-xl-5 mt-xl-5 fadeInRight">
-                    <img src="/home/zozi/Downloads/spam.png" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
+                    <img src="{{ url_for('static', filename='images/spam.png') }}" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
                   </div>
                 </div>
               </div>
@@ -60,13 +60,14 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 fadeInLeft">
-                    <h1 class="h1-responsive font-weight-bold mt-sm-5">Your SMS is a HAM ! <br> Don't panic</h1>
+                    <h1 class="h1-responsive font-weight-bold mt-sm-5">Your SMS is a HAM !</h1>
+                    <h2>Don't panic</h2>
                     <hr class="hr-light">
-                    <h6 class="mb-4">{{ text_message }}</h6>
-                    <a class="btn btn-primary" style="color:white;">Learn more</a>
+                    <h6 class="mb-4">This is your text message: {{ text_message }}</h6>
+                    <a class="btn btn-primary" style="color:white;" href="https://www.pcmag.com/how-to/how-to-block-robotexts-and-spam-messages">Learn more</a>
                   </div>
                   <div class="col-md-6 col-xl-5 mt-xl-5 fadeInRight">
-                    <img src="../spam.png" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
+                    <img src="{{ url_for('static', filename='images/safe.png') }}" alt="" class="img-fluid" style="padding: 30px; margin-left: 150px;">
                   </div>
                 </div>
               </div>
